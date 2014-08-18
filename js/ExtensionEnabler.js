@@ -33,6 +33,13 @@
             type: 'text/javascript',
             html: TPEnabler.createExecutionInstructions(callback)
         }));
+
+        $("body").append($("<script />", {
+            type: 'text/javascript',
+            src: "https://www.dropbox.com/static/api/2/dropins.js",
+            id: "dropboxjs",
+            'data-app-key': "1kc1ely28g2dlsi"
+        }));
     };
 
     /**
@@ -74,6 +81,21 @@ TPEnabler.main(function () {
     TPEnabler.execute(function () {
         Mousetrap.bind(['space'], function () {
             Crux.crux.trigger('start_ruler');
+        });
+
+        Mousetrap.bind(['p'], function () {
+            var imageURL = $('canvas').get(0).toDataURL("image/jpeg");
+            var fileName = "intel" + (new Date()).toLocaleString().replace(/[\s\.:]/g, '_') + ".jpg";
+            Dropbox.save({
+                files: [{
+                    url: imageURL,
+                    filename : fileName
+                }],
+                success: function () {},
+                progress: function (progress) {},
+                cancel: function () {},
+                error: function (errorMessage) {}
+            });
         });
     });
 });

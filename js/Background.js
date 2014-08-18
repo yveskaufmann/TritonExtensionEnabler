@@ -9,19 +9,6 @@ function getTritonUrl() {
 }
 
 /**
- * Checks if a specified url leads to a triton web page.
- *
- * @param {string} url
- * @param {string} path
- * @returns {boolean} true if the specified page leads to a triton web page.
- */
-function isTritronUrl(url, path) {
-    "use strict";
-    path = path || '';
-    return url.indexOf(getTritonUrl() + path) === 0;
-}
-
-/**
  * Opens a specified triton web page inside a
  * new tab. A new tab will only be created when necessary.
  *
@@ -30,17 +17,19 @@ function isTritronUrl(url, path) {
 function goToTritron(path) {
     "use strict";
     path = path || '';
-    chrome.tabs.getAllInWindow(undefined, function (tabs) {
-        for (var i = 0, tab; (tab = tabs[i]) !== null; i++) {
-			if ( tab.url && isTritronUrl( tab.url, path ) ) {
-				chrome.tabs.update(tab.id, { active: true });
-				return;
-			}
-		}
+    chrome.tabs.query({'url' : getTritonUrl() + "*"}, function (tabs) {
+        for (var i = 0; i < tabs.length; i++) {
+            chrome.tabs.update(tabs[i].id, { active: true });
 
+		}
+        if(tabs.length > 0) return;
 		chrome.tabs.create({
 			url: getTritonUrl() + path,
 			active: true
 		});
 	});
 }
+
+chrome.browserAction.onClicked.addListener(function callback() {
+    goToTritron();
+})
