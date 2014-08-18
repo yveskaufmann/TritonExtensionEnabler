@@ -86,7 +86,13 @@ TPEnabler.main(function () {
 
         Mousetrap.bind(['p'], function () {
             var imageURL = $('canvas').get(0).toDataURL("image/jpeg");
-            var fileName = "intel" + (new Date()).toLocaleString().replace(/[\s\.:]/g, '_') + ".jpg";
+            var fileName = [
+                "Intel",
+                NeptunesPride.gameConfig.name,
+                NeptunesPride.account.alias,
+                (new Date()).toLocaleString()
+            ].join('_').replace(/[\s\.:]/g, '_') + ".jpg";
+
             Dropbox.save({
                 files: [{
                     url: imageURL,
