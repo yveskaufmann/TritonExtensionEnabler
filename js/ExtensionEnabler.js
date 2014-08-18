@@ -7,7 +7,7 @@
  *
  * The following extensions are already implemented:
  *
- * - assign the space bar as hot key for the ruler
+ * - assign the space bar as hot key for the reset of the ruler
  *
  * @author fxdapokalypse
  */
@@ -80,6 +80,7 @@ TPEnabler.main(function () {
     // Please avoid comments inside the instruction function
     TPEnabler.execute(function () {
         Mousetrap.bind(['space'], function () {
+            Crux.crux.trigger('start_ruler');
             Crux.crux.trigger('start_ruler');
         });
 
