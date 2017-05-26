@@ -6,6 +6,6 @@ A Google Chrome Extension for the game [Neptune's Pride](https://np.ironhelmet.c
 # Features
 
 - Open Neptune's Pride with one Click
-- Take-Screenshots by hitting `P` and share over Dropbox. 
+- Take-Screenshots and sharing over Dropbox by hitting `P` 
 
  
