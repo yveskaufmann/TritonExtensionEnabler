@@ -17,10 +17,10 @@
     /**
      * List of shorthand objects
      */
-    var array = [];
-    var slice = Array.prototype.slice;
-    var root = this;
-    var TPEnabler = root.TPEnabler = {};
+    const array = [];
+    const slice = Array.prototype.slice;
+    const root = this;
+    const TPEnabler = root.TPEnabler = {};
 
     /**
      * A main routine which executes a specified javascript function
