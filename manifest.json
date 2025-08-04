@@ -1,7 +1,7 @@
 {
 	"manifest_version": 3,
-	"name" : "Tritron Extensions Enabler",
-	"description": "Provide you some extra features for this awesome game.",
+	"name" : "Neptune's Pride Extensions Enabler",
+	"description": "Provides extra features for Neptune's Pride 4.",
 	"version": "1.0",
 
 	"permissions": [
@@ -10,7 +10,7 @@
 	],
 
 	"host_permissions": [
-		"*://triton.ironhelmet.com/*",
+		"*://np4.ironhelmet.com/*",
         "*://www.dropbox.com/*"
 	],
 
@@ -21,7 +21,7 @@
 	"content_scripts": [
 		{ 
 			"matches": [
-				"*://triton.ironhelmet.com/game/*"
+				"*://np4.ironhelmet.com/game/*"
 			], 
 			"js": [ "js/lib/jquery-2.1.1.min.js", "js/ExtensionEnabler.js" ],
 			"run_at" : "document_end",
@@ -37,7 +37,7 @@
 	"web_accessible_resources": [
 		{
 			"resources": ["js/lib/jquery-2.1.1.min.js"],
-			"matches": ["*://triton.ironhelmet.com/*"]
+			"matches": ["*://np4.ironhelmet.com/*"]
 		}
 	],
 	

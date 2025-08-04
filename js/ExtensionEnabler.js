@@ -1,9 +1,9 @@
 /**
- * Extension Enabler for the Game Triton Neptunes Prime 2.
+ * Extension Enabler for the Game Neptune's Pride 4.
  *
  * This file is a simple content script for a google chrome extension
- * which is is responsible to execute Triton extensions
- * inside the execution context of the game page http://triton.ironhelmet.com/game/...
+ * which is is responsible to execute Neptune's Pride extensions
+ * inside the execution context of the game page https://np4.ironhelmet.com/game/...
  *
  * The following extensions are already implemented:
  *

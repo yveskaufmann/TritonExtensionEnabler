@@ -3,13 +3,13 @@
  */
 
 /**
- * Getter function for the triton web page address.
+ * Getter function for the Neptune's Pride web page address.
  *
- * @returns {string} the URL to the triton web page.
+ * @returns {string} the URL to the Neptune's Pride web page.
  */
 function getTritonUrl() {
   'use strict';
-  return 'http://triton.ironhelmet.com/';
+  return 'https://np4.ironhelmet.com/';
 }
 
 /**
