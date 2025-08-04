@@ -1,18 +1,21 @@
 {
-	"manifest_version": 2,
+	"manifest_version": 3,
 	"name" : "Tritron Extensions Enabler",
 	"description": "Provide you some extra features for this awesome game.",
 	"version": "1.0",
 
 	"permissions": [
+		"tabs",
+		"scripting"
+	],
+
+	"host_permissions": [
 		"*://triton.ironhelmet.com/*",
-        "*://www.dropbox.com/*",
-		"tabs"
+        "*://www.dropbox.com/*"
 	],
 
 	"background": {
-		"page" : "background.html",
-		"persistent" : false
+		"service_worker" : "js/service-worker.js"
 	},	
 
 	"content_scripts": [
@@ -26,9 +29,21 @@
 		}
 	],
 
-	"browser_action" : {
+	"action" : {
 		"default_icon": "images/icon.png",
 		"default_popup": "popup.html"
+	},
+	
+	"web_accessible_resources": [
+		{
+			"resources": ["js/lib/jquery-2.1.1.min.js"],
+			"matches": ["*://triton.ironhelmet.com/*"]
+		}
+	],
+	
+	"content_security_policy": {
+		"extension_pages": "script-src 'self'; object-src 'self'",
+		"sandbox": "sandbox allow-scripts allow-forms allow-popups allow-modals; script-src 'self'; object-src 'self'"
 	}
 
 }

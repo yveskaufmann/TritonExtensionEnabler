@@ -1,10 +1,9 @@
 (function () {
-    "use strict";
-    var BG = chrome.extension.getBackgroundPage();
-
+    'use strict';
+    
     $(window).ready(function () {
         $('#go_to_triton').click(function () {
-            BG.goToTritron();
+            chrome.runtime.sendMessage({action: 'goToTritron'});
         });
     });
 
