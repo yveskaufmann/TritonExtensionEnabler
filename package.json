@@ -1,0 +1,17 @@
+{
+  "name": "triton-extension-enabler",
+  "version": "1.0.0",
+  "description": "A Google Chrome Extension for the game Neptune's Pride (formerly Triton)",
+  "scripts": {
+    "build": "npm run clean && tsc && npm run copy-assets",
+    "copy-assets": "mkdir -p dist/js && cp -r css/ dist/ && cp -r images/ dist/ && cp -r js/lib/ dist/js/ && cp popup.html dist/ && cp manifest.json dist/",
+    "clean": "rm -rf dist/",
+    "watch": "tsc --watch"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.268",
+    "@types/jquery": "^3.5.29",
+    "typescript": "^5.4.5"
+  },
+  "private": true
+}
