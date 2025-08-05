@@ -8,8 +8,8 @@
  * @returns {string} the URL to the Neptune's Pride web page.
  */
 function getTritonUrl() {
-  'use strict';
-  return 'https://np4.ironhelmet.com/';
+  "use strict";
+  return "https://np.ironhelmet.com/";
 }
 
 /**
@@ -19,16 +19,16 @@ function getTritonUrl() {
  * @param {string} path The path to to be opened triton web page
  */
 function goToTritron(path) {
-  'use strict';
-  path = path || '';
-  chrome.tabs.query({'url': getTritonUrl() + '*'}, function(tabs) {
+  "use strict";
+  path = path || "";
+  chrome.tabs.query({ url: getTritonUrl() + "*" }, function (tabs) {
     for (const tab of tabs) {
-      chrome.tabs.update(tab.id, {active: true});
+      chrome.tabs.update(tab.id, { active: true });
     }
     if (tabs.length > 0) return;
     chrome.tabs.create({
       url: getTritonUrl() + path,
-      active: true
+      active: true,
     });
   });
 }
@@ -40,7 +40,7 @@ chrome.action.onClicked.addListener(function callback() {
 
 // Listen for runtime messages from popup
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message.action === 'goToTritron') {
+  if (message.action === "goToTritron") {
     goToTritron();
   }
   // Always return true for async response

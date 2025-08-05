@@ -1,49 +1,40 @@
 {
-	"manifest_version": 3,
-	"name" : "Neptune's Pride Extensions Enabler",
-	"description": "Provides extra features for Neptune's Pride 4.",
-	"version": "1.0",
+  "manifest_version": 3,
+  "name": "Neptune's Pride Extensions Enabler",
+  "description": "Provides extra features for Neptune's Pride 4.",
+  "version": "1.0",
 
-	"permissions": [
-		"tabs",
-		"scripting"
-	],
+  "permissions": ["tabs", "scripting"],
 
-	"host_permissions": [
-		"*://np4.ironhelmet.com/*",
-        "*://www.dropbox.com/*"
-	],
+  "host_permissions": ["*://np.ironhelmet.com/*", "*://www.dropbox.com/*"],
 
-	"background": {
-		"service_worker" : "js/service-worker.js"
-	},	
+  "background": {
+    "service_worker": "js/service-worker.js"
+  },
 
-	"content_scripts": [
-		{ 
-			"matches": [
-				"*://np4.ironhelmet.com/game/*"
-			], 
-			"js": [ "js/lib/jquery-2.1.1.min.js", "js/ExtensionEnabler.js" ],
-			"run_at" : "document_end",
-			"all_frames" : true
-		}
-	],
+  "content_scripts": [
+    {
+      "matches": ["*://np.ironhelmet.com/game/*"],
+      "js": ["js/lib/jquery-2.1.1.min.js", "js/ExtensionEnabler.js"],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
 
-	"action" : {
-		"default_icon": "images/icon.png",
-		"default_popup": "popup.html"
-	},
-	
-	"web_accessible_resources": [
-		{
-			"resources": ["js/lib/jquery-2.1.1.min.js"],
-			"matches": ["*://np4.ironhelmet.com/*"]
-		}
-	],
-	
-	"content_security_policy": {
-		"extension_pages": "script-src 'self'; object-src 'self'",
-		"sandbox": "sandbox allow-scripts allow-forms allow-popups allow-modals; script-src 'self'; object-src 'self'"
-	}
+  "action": {
+    "default_icon": "images/icon.png",
+    "default_popup": "popup.html"
+  },
 
+  "web_accessible_resources": [
+    {
+      "resources": ["js/lib/jquery-2.1.1.min.js"],
+      "matches": ["*://np.ironhelmet.com/*"]
+    }
+  ],
+
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'",
+    "sandbox": "sandbox allow-scripts allow-forms allow-popups allow-modals; script-src 'self'; object-src 'self'"
+  }
 }
